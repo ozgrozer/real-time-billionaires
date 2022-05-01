@@ -37,7 +37,7 @@ export default ({ billionaires }) => {
   return (
     <>
       <Head>
-        <title>Top Billionaires</title>
+        <title>Real Time Billionaires</title>
       </Head>
 
       <div className={styles.billionaires}>
