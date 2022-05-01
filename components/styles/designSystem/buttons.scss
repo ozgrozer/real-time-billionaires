@@ -1,0 +1,80 @@
+@import '@components/styles/vars';
+@import '@components/styles/utilities/mixins';
+
+@mixin gradient ($color) {
+  background: linear-gradient(315deg, transparent 10px, darken($color, 0%) 5%);
+}
+
+.button {
+  border: none;
+  height: 48px;
+  outline: none;
+  padding: 0 40px;
+  cursor: pointer;
+  font-size: 16px;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 48px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  transition: $transitionAll;
+  border-radius: $borderRadius;
+  &.block {
+    width: 100%;
+    display: block;
+  }
+  &.square {
+    padding: 0;
+    width: 48px;
+  }
+  &.gray1 {
+    color: $color-black;
+    background-color: transparent;
+    @include gradient(darken($color-gray1, 0%));
+    &:hover {
+      @include gradient(darken($color-gray1, 5%));
+    }
+    &:active {
+      @include gradient(darken($color-gray1, 10%));
+    }
+  }
+  &.gray3 {
+    color: $color-black;
+    background-color: transparent;
+    @include gradient(darken($color-gray3, 0%));
+    &:hover {
+      @include gradient(darken($color-gray3, 5%));
+    }
+    &:active {
+      @include gradient(darken($color-gray3, 10%));
+    }
+  }
+  &.green {
+    color: $color-black;
+    background-color: transparent;
+    @include gradient(darken($color-green, 0%));
+    &:hover {
+      @include gradient(darken($color-green, 20%));
+    }
+    &:active {
+      @include gradient(darken($color-green, 30%));
+    }
+  }
+  &:disabled, &.disabled {
+    display: flex;
+    cursor: default;
+    align-items: center;
+    color: $color-gray3;
+    @include gradient(darken($color-gray2, 0%));
+    &:hover, &:active {
+      @include gradient(darken($color-gray2, 0%));
+    }
+
+    .spinner1 {
+      margin-left: 10px;
+      display: inline-block;
+      @include spinner1($widthAndHeight: 14px, $border: 2px, $backColor: $color-white, $frontColor: $color-midnight);
+    }
+  }
+}

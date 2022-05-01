@@ -1,0 +1,32 @@
+@use 'sass:math';
+
+@import '@components/styles/vars';
+@import '@components/styles/utilities/mixins';
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-width: 1px;
+  color: $color-black;
+  border-style: solid;
+  @include placeholder(#666);
+  border-color: $color-gray1;
+  border-radius: $borderRadius;
+  background-color: $color-gray1;
+  &:focus {
+    border-color: $color-blue;
+  }
+  &.invalid {
+    border-color: $color-red;
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+  &:read-only {
+    &:focus {
+      border-color: $color-gray2;
+    }
+  }
+}

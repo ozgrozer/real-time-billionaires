@@ -1,0 +1,10 @@
+@import '@components/styles/vars';
+@import '@components/styles/utilities/reset';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-white;
+}

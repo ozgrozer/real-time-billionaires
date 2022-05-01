@@ -1,0 +1,59 @@
+$color-white: #ffffff;
+$color-gray1: #F1F1F1;
+$color-gray2: #C4C4C4;
+$color-gray3: #222222;
+$color-black: #111111;
+$color-red: #E87169;
+$color-blue: #2E5590;
+$color-navy: #293242;
+$color-pink: #FBE8E7;
+$color-white: #FFFFFF;
+$color-green: #DEFC52;
+$color-skyblue: #44B0FF;
+$color-midnight: #131B2C;
+
+$color-buttermilk: #F8DD99;
+$color-negroni: #F8C799;
+$color-seapink: #F89F99;
+$color-wewak: #F899B0;
+$color-bilobaflower: #BD99F8;
+$color-portage: #99A8F8;
+$color-babyblueeyes: #99CAF8;
+$color-paleturquoise: #99EDF8;
+$color-magicmint: #99F8D6;
+$color-reef: #B2F899;
+$color-australianmint: #F0F899;
+
+$borderRadius: 10px;
+
+$transitionAll: all 0.25s ease-in-out;
+$transitionColor: color 0.25s ease-in-out;
+$transitionHeight: height 0.25s ease-in-out;
+$transitionBackground: background 0.25s ease-in-out;
+
+$container1Mobile: calc(100% - 32px);
+$container1Desktop: calc(100% - 48px);
+
+$container2Mobile: calc(100% - 48px);
+$container2Desktop: 1040px;
+
+$mobileMax: 767px;
+$tabletMin: 768px;
+$tabletMax: 1199px;
+$computerMin: 1200px;
+$computerMax: 1749px;
+$largescreenMin: 1750px;
+
+@media (max-width: $mobileMax) {
+}
+@media (min-width: $tabletMin) and (max-width: $tabletMax) {
+}
+@media (min-width: $computerMin) and (max-width: $computerMax) {
+}
+@media (min-width: $largescreenMin) {
+}
+
+@media (max-width: $mobileMax) {
+}
+@media (min-width: $tabletMin) {
+}

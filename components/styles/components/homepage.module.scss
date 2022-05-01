@@ -1,0 +1,61 @@
+@import '@components/styles/vars';
+
+.billionaires {
+  @media (max-width: $mobileMax) {
+    padding: 20px;
+    overflow-x: auto;
+  }
+  @media (min-width: $tabletMin) {
+    padding: 20px 0;
+  }
+
+  .billionaire {
+    gap: 20px;
+    width: 900px;
+    display: flex;
+    margin: 16px auto;
+    align-items: center;
+
+    >div {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .image {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 8px;
+
+      .noImage {
+        width: 100%;
+        height: 100%;
+        background-color: #eee;
+      }
+    }
+
+    .rank {
+      width: 30px;
+      text-align: right;
+    }
+
+    .fullName {
+      width: 220px;
+      font-weight: 600;
+    }
+
+    .worth {
+      width: 100px;
+      text-align: right;
+    }
+
+    .source {
+      width: 200px;
+    }
+
+    .country {
+      width: 200px;
+    }
+  }
+}
