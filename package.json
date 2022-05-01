@@ -1,0 +1,28 @@
+{
+  "license": "MIT",
+  "name": "top-billionaires",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozgrozer/top-billionaires"
+  },
+  "author": {
+    "name": "Ozgur Ozer",
+    "email": "ozgr@live.com",
+    "url": "https://github.com/ozgrozer"
+  },
+  "engines": {
+    "npm": "^8.x",
+    "yarn": "^1.x",
+    "node": "^17.x"
+  },
+  "scripts": {
+    "build": "next build",
+    "start": "next start",
+    "dev": "next dev -p 1410"
+  },
+  "dependencies": {
+    "next": "^12.1.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
