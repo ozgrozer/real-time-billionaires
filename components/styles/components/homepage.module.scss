@@ -1,6 +1,26 @@
 @import '@components/styles/vars';
 
+.container1 {
+  margin: 0 auto;
+  @media (max-width: $mobileMax) {
+    width: 100%;
+  }
+  @media (min-width: $tabletMin) {
+    width: 900px;
+  }
+}
+
+.lastUpdate {
+  display: flex;
+  font-size: 14px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
 .billionaires {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
   @media (max-width: $mobileMax) {
     padding: 20px;
     overflow-x: auto;
@@ -11,9 +31,7 @@
 
   .billionaire {
     gap: 20px;
-    width: 900px;
     display: flex;
-    margin: 16px auto;
     align-items: center;
 
     >div {
@@ -56,6 +74,7 @@
 
     .country {
       width: 200px;
+      text-align: right;
     }
   }
 }

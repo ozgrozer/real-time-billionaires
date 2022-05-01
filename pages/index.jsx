@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -33,64 +34,84 @@ const numberFormat = (number, decimals, decimalSeparator, thousandsSeparator) =>
   return number
 }
 
-export default ({ billionaires }) => {
+export default ({ lastUpdate, billionaires }) => {
   return (
     <>
       <Head>
         <title>Real Time Billionaires</title>
       </Head>
 
-      <div className={styles.billionaires}>
-        {
-          billionaires.map((billionaire, key) => {
-            const _imageUrl = billionaire.squareImage || ''
-            const imageUrl = _imageUrl.substr(0, 2) === '//'
-              ? `https:${_imageUrl}`
-              : _imageUrl
+      <div className={styles.container1}>
+        <div className={styles.lastUpdate}>
+          <div>
+            Last update: {moment(lastUpdate).fromNow()}
+          </div>
 
-            return (
-              <div key={key} className={styles.billionaire}>
-                <div className={styles.image}>
-                  {
-                    imageUrl
-                      ? (
-                        <Image
-                          width={50}
-                          height={50}
-                          src={imageUrl}
-                          placeholder='blur'
-                          blurDataURL={shimmer()}
-                        />
-                        )
-                      : (
-                        <div className={styles.noImage} />
-                        )
-                  }
-                </div>
+          <div>
+            Source:
+            {' '}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://www.forbes.com/real-time-billionaires/'
+            >
+              Forbes
+            </a>
+          </div>
+        </div>
 
-                <div className={styles.rank}>
-                  {billionaire.rank}
-                </div>
+        <div className={styles.billionaires}>
+          {
+            billionaires.map((billionaire, key) => {
+              const _imageUrl = billionaire.squareImage || ''
+              const imageUrl = _imageUrl.substr(0, 2) === '//'
+                ? `https:${_imageUrl}`
+                : _imageUrl
 
-                <div className={styles.fullName}>
-                  {billionaire.personName}
-                </div>
+              return (
+                <div key={key} className={styles.billionaire}>
+                  <div className={styles.image}>
+                    {
+                      imageUrl
+                        ? (
+                          <Image
+                            width={50}
+                            height={50}
+                            src={imageUrl}
+                            placeholder='blur'
+                            blurDataURL={shimmer()}
+                          />
+                          )
+                        : (
+                          <div className={styles.noImage} />
+                          )
+                    }
+                  </div>
 
-                <div className={styles.worth}>
-                  ${numberFormat((billionaire.finalWorth / 1000), 2)} B
-                </div>
+                  <div className={styles.rank}>
+                    {billionaire.rank}
+                  </div>
 
-                <div className={styles.source}>
-                  {billionaire.source}
-                </div>
+                  <div className={styles.fullName}>
+                    {billionaire.personName}
+                  </div>
 
-                <div className={styles.country}>
-                  {billionaire.countryOfCitizenship}
+                  <div className={styles.worth}>
+                    ${numberFormat((billionaire.finalWorth / 1000), 2)} B
+                  </div>
+
+                  <div className={styles.source}>
+                    {billionaire.source}
+                  </div>
+
+                  <div className={styles.country}>
+                    {billionaire.countryOfCitizenship}
+                  </div>
                 </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
     </>
   )
@@ -100,8 +121,13 @@ export const getStaticProps = async () => {
   const apiResult = await axios.get('https://www.forbes.com/forbesapi/person/rtb/0/-estWorthPrev/true.json?fields=squareImage,rank,personName,finalWorth,birthDate,source,countryOfCitizenship')
   const billionaires = apiResult.data.personList.personsLists.filter((item, key) => key < 200)
 
+  const lastUpdate = +new Date()
+
   return {
     revalidate: 10,
-    props: { billionaires }
+    props: {
+      lastUpdate,
+      billionaires
+    }
   }
 }
