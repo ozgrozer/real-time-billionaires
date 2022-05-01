@@ -4,6 +4,8 @@
   margin: 0 auto;
   @media (max-width: $mobileMax) {
     width: 100%;
+    padding: 0 20px;
+    overflow-x: auto;
   }
   @media (min-width: $tabletMin) {
     width: 900px;
@@ -11,6 +13,7 @@
 }
 
 .lastUpdate {
+  width: 900px;
   display: flex;
   font-size: 14px;
   margin-top: 20px;
@@ -19,15 +22,10 @@
 
 .billionaires {
   gap: 16px;
+  width: 900px;
   display: flex;
+  padding: 20px 0;
   flex-direction: column;
-  @media (max-width: $mobileMax) {
-    padding: 20px;
-    overflow-x: auto;
-  }
-  @media (min-width: $tabletMin) {
-    padding: 20px 0;
-  }
 
   .billionaire {
     gap: 20px;
