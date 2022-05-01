@@ -1,3 +1,3 @@
-# top-billionaires
+# real-time-billionaires
 
-Forbes Real Time Top Billionaires
+Forbes Real Time Billionaires
