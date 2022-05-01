@@ -16,8 +16,13 @@
     "dev": "next dev -p 1410"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "next": "^12.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "sass": "^1.51.0",
+    "standard": "^17.0.0"
   }
 }
