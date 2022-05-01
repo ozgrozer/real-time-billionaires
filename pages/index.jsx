@@ -101,6 +101,7 @@ export const getStaticProps = async () => {
   const billionaires = apiResult.data.personList.personsLists.filter((item, key) => key < 200)
 
   return {
+    revalidate: 10,
     props: { billionaires }
   }
 }
